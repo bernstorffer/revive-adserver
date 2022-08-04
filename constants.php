@@ -233,34 +233,6 @@ function setupConstants()
             define('phpAds_dbmsname', 'Postgres');
         }
     }
-    
-   /**
-    * Set $GLOBALS['badLoginLogFilePath'] to the path of the log file fail2ban can use to ban an IP trying to brute force your site.
-    *
-    * Run the following commands to make the file writable:
-    * $ touch /var/log/reviveBadLogin.log
-    * $ chown www-data:www-data /var/log/reviveBadLogin.log
-    *
-    * Add the following in the /etc/fail2ban/filter.d/revive.conf file:
-    * [Definition]
-    * failregex = ^.*: <HOST>$
-    * datepattern = {^LN-BEG}Epoch
-    *
-    * Add the following in the /etc/fail2ban/filter.d/revive.conf file:
-    * [revive]
-    * enabled = true
-    * port = 80,443
-    * protocol = tcp
-    * filter = revive
-    * maxretry = 3
-    * bantime = 86400
-    * findtime = 43200
-    * logpath = /var/log/reviveBadLogin.log
-    *
-    * Restart fail2ban with the following command:
-    * $ systemctl restart fail2ban
-    */
-    // $GLOBALS['badLoginLogFilePath'] = '/var/log/reviveBadLogin.log';
 }
 
 
