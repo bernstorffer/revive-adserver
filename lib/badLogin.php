@@ -20,8 +20,8 @@ function get_client_ip_env()
         $ipaddress = 'UNKNOWN';
     }
     if(!filter_var($ipaddress, FILTER_VALIDATE_IP)){
-        mylog("Error: invalid ip. Not reporting the ip as this may help an exploit.");
-        echo("You do not seem to be from this planet.");
+        echo("You do not seem to be from this planet. Bye bye.");
+        // Not reporting further as this is probably an exploit attempt without a real IP. Thus, reporting bad logins is pointless as the outcome of the login attempt is unknown to the requester anyway.
         exit;
     }
     return $ipaddress;
@@ -30,8 +30,9 @@ function get_client_ip_env()
 function logBadLogin()
 {
     global $GLOBALS;
-    if(array_key_exists("badLoginLogFilePath",$GLOBALS)){
-      $logspath=$GLOBALS["badLoginLogFilePath"];
+    if(array_key_exists("badLoginLogPath",$GLOBALS['_MAX']['CONF']['ui'])&&
+        !empty($GLOBALS['_MAX']['CONF']['ui']["badLoginLogPath"])){
+        $logspath=$GLOBALS['_MAX']['CONF']['ui']["badLoginLogPath"];
     }
     else{
       return(false);
