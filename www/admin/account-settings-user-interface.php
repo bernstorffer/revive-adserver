@@ -215,6 +215,15 @@ $aSettings = [
                 'type' => 'checkbox',
                 'name' => 'ui_gzipCompression',
                 'text' => $strGzipContentCompression
+            ],
+            [
+                'type' => 'break'
+            ],
+            [
+                'type' => 'text',
+                'name' => 'ui_badLoginLogPath',
+                'text' => $strGuiBadLoginLogPath,
+                'size' => 35
             ]
         ]
     ],
