@@ -306,7 +306,7 @@ class OX_Admin_UI_Install_InstallController extends OX_Admin_UI_Controller_BaseC
 
         if ($oForm->validate()) {
             if (!OA_Upgrade_Login::checkLogin()) {
-                require_once MAX_PATH . '/lib/badLogin.php';
+                require_once MAX_PATH . '/lib/max/other/badLogin.php';
                 $this->setModelProperty(
                     'aMessages',
                     ['error' => [$GLOBALS['strUsernameOrPasswordWrong']]]
